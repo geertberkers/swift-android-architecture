@@ -40,6 +40,10 @@ import com.example.android.architecture.blueprints.todoapp.util.ActivityUtils;
 
 public class TasksActivity extends AppCompatActivity implements TaskItemNavigator, TasksNavigator {
 
+    static {
+        System.loadLibrary("TodoCore");
+    }
+
     private DrawerLayout mDrawerLayout;
 
     private TasksViewModel mViewModel;

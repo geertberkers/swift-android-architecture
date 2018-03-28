@@ -1,8 +1,15 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.readdle.android.swift'
+
+swift {
+    cleanEnabled true
+    debug {
+        extraBuildFlags("-Xswiftc", "-DDEBUG")
+    }
+}
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         applicationId "com.example.android.architecture.blueprints.todomvvmlive"
@@ -61,6 +68,7 @@ android {
     dataBinding {
         enabled = true
     }
+    buildToolsVersion '27.0.3'
 }
 
 /*
@@ -68,6 +76,10 @@ android {
  all versions in a single place. This improves readability and helps managing project complexity.
  */
 dependencies {
+    // Swift dependencies
+    annotationProcessor "com.github.andriydruk.swift-java-codegen:compiler:0.6.4"
+    implementation "com.github.andriydruk.swift-java-codegen:library:0.6.4"
+
     // App's dependencies, including test
     compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"

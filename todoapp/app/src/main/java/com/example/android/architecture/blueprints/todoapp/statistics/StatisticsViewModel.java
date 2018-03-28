@@ -22,12 +22,15 @@ import android.content.Context;
 import android.databinding.Bindable;
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
+import android.support.annotation.NonNull;
 
 import com.example.android.architecture.blueprints.todoapp.R;
 import com.example.android.architecture.blueprints.todoapp.data.Task;
+import com.example.android.architecture.blueprints.todoapp.data.source.LoadTasksCallback;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -74,9 +77,9 @@ public class StatisticsViewModel extends AndroidViewModel {
     public void loadStatistics() {
         dataLoading.set(true);
 
-        mTasksRepository.getTasks(new TasksDataSource.LoadTasksCallback() {
+        mTasksRepository.getTasks(new LoadTasksCallback() {
             @Override
-            public void onTasksLoaded(List<Task> tasks) {
+            public void onTasksLoaded(@NonNull ArrayList<Task> tasks) {
                 error.set(false);
                 computeStats(tasks);
             }
@@ -99,7 +102,7 @@ public class StatisticsViewModel extends AndroidViewModel {
         int active = 0;
 
         for (Task task : tasks) {
-            if (task.isCompleted()) {
+            if (task.getCompleted()) {
                 completed += 1;
             } else {
                 active += 1;

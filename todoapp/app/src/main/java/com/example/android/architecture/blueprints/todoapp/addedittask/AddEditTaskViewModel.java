@@ -26,6 +26,7 @@ import com.example.android.architecture.blueprints.todoapp.SingleLiveEvent;
 import com.example.android.architecture.blueprints.todoapp.R;
 import com.example.android.architecture.blueprints.todoapp.SnackbarMessage;
 import com.example.android.architecture.blueprints.todoapp.data.Task;
+import com.example.android.architecture.blueprints.todoapp.data.source.GetTaskCallback;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository;
 
@@ -37,7 +38,7 @@ import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepo
  * {@link com.example.android.architecture.blueprints.todoapp.statistics.StatisticsViewModel} for
  * how to deal with more complex scenarios.
  */
-public class AddEditTaskViewModel extends AndroidViewModel implements TasksDataSource.GetTaskCallback {
+public class AddEditTaskViewModel extends AndroidViewModel implements GetTaskCallback {
 
     public final ObservableField<String> title = new ObservableField<>();
 
@@ -91,7 +92,7 @@ public class AddEditTaskViewModel extends AndroidViewModel implements TasksDataS
     public void onTaskLoaded(Task task) {
         title.set(task.getTitle());
         description.set(task.getDescription());
-        mTaskCompleted = task.isCompleted();
+        mTaskCompleted = task.getCompleted();
         dataLoading.set(false);
         mIsDataLoaded = true;
 

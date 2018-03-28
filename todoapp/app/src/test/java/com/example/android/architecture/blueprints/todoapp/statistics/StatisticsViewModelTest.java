@@ -17,13 +17,11 @@
 package com.example.android.architecture.blueprints.todoapp.statistics;
 
 
-import android.app.Application;
-import android.arch.core.executor.testing.InstantTaskExecutorRule;
+import com.google.common.collect.Lists;
 
 import com.example.android.architecture.blueprints.todoapp.data.Task;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository;
-import com.google.common.collect.Lists;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -33,7 +31,10 @@ import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.List;
+import android.app.Application;
+import android.arch.core.executor.testing.InstantTaskExecutorRule;
+
+import java.util.ArrayList;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -50,7 +51,7 @@ public class StatisticsViewModelTest {
     @Rule
     public InstantTaskExecutorRule instantExecutorRule = new InstantTaskExecutorRule();
 
-    private static List<Task> TASKS;
+    private static ArrayList<Task> TASKS;
 
     @Mock
     private TasksRepository mTasksRepository;

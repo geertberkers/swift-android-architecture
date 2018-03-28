@@ -27,6 +27,7 @@ import com.example.android.architecture.blueprints.todoapp.SingleLiveEvent;
 import com.example.android.architecture.blueprints.todoapp.R;
 import com.example.android.architecture.blueprints.todoapp.SnackbarMessage;
 import com.example.android.architecture.blueprints.todoapp.data.Task;
+import com.example.android.architecture.blueprints.todoapp.data.source.GetTaskCallback;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository;
 import com.example.android.architecture.blueprints.todoapp.tasks.TasksFragment;
@@ -36,7 +37,7 @@ import com.example.android.architecture.blueprints.todoapp.tasks.TasksFragment;
  * Listens to user actions from the list item in ({@link TasksFragment}) and redirects them to the
  * Fragment's actions listener.
  */
-public class TaskDetailViewModel extends AndroidViewModel implements TasksDataSource.GetTaskCallback {
+public class TaskDetailViewModel extends AndroidViewModel implements GetTaskCallback {
 
     public final ObservableField<Task> task = new ObservableField<>();
 
@@ -104,7 +105,7 @@ public class TaskDetailViewModel extends AndroidViewModel implements TasksDataSo
     public void setTask(Task task) {
         this.task.set(task);
         if (task != null) {
-            completed.set(task.isCompleted());
+            completed.set(task.getCompleted());
         }
     }
 

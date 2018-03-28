@@ -1,0 +1,4 @@
+.idea
+todoapp/app/src/main/jniLibs
+todoapp/app/src/main/swift/.build
+todoapp/app/src/main/swift/TodoCore.xcodeproj

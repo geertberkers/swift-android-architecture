@@ -26,12 +26,14 @@ import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
 import android.databinding.ObservableList;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 
 import com.example.android.architecture.blueprints.todoapp.SingleLiveEvent;
 import com.example.android.architecture.blueprints.todoapp.R;
 import com.example.android.architecture.blueprints.todoapp.SnackbarMessage;
 import com.example.android.architecture.blueprints.todoapp.addedittask.AddEditTaskActivity;
 import com.example.android.architecture.blueprints.todoapp.data.Task;
+import com.example.android.architecture.blueprints.todoapp.data.source.LoadTasksCallback;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository;
 import com.example.android.architecture.blueprints.todoapp.taskdetail.TaskDetailActivity;
@@ -202,9 +204,9 @@ public class TasksViewModel extends AndroidViewModel {
             mTasksRepository.refreshTasks();
         }
 
-        mTasksRepository.getTasks(new TasksDataSource.LoadTasksCallback() {
+        mTasksRepository.getTasks(new LoadTasksCallback() {
             @Override
-            public void onTasksLoaded(List<Task> tasks) {
+            public void onTasksLoaded(@NonNull ArrayList<Task> tasks) {
                 List<Task> tasksToShow = new ArrayList<>();
 
                 // We filter the tasks based on the requestType
@@ -219,7 +221,7 @@ public class TasksViewModel extends AndroidViewModel {
                             }
                             break;
                         case COMPLETED_TASKS:
-                            if (task.isCompleted()) {
+                            if (task.getCompleted()) {
                                 tasksToShow.add(task);
                             }
                             break;

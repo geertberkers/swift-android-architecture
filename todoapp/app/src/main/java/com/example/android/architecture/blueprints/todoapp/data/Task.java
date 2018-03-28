@@ -16,39 +16,37 @@
 
 package com.example.android.architecture.blueprints.todoapp.data;
 
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Ignore;
-import android.arch.persistence.room.PrimaryKey;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import com.google.common.base.Objects;
 import com.google.common.base.Strings;
+
+import com.readdle.codegen.anotation.SwiftValue;
+
+import android.arch.persistence.room.Ignore;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import java.util.UUID;
 
 /**
  * Immutable model class for a Task.
  */
-@Entity(tableName = "tasks")
+@SwiftValue
 public final class Task {
 
-    @PrimaryKey
     @NonNull
-    @ColumnInfo(name = "entryid")
-    private final String mId;
+    private String id;
 
     @Nullable
-    @ColumnInfo(name = "title")
-    private final String mTitle;
+    private String title;
 
     @Nullable
-    @ColumnInfo(name = "description")
-    private final String mDescription;
+    private String description;
 
-    @ColumnInfo(name = "completed")
-    private final boolean mCompleted;
+    @NonNull
+    private Boolean completed;
+
+    // JNI Constructor
+    private Task() {}
 
     /**
      * Use this constructor to create a new active Task.
@@ -97,47 +95,47 @@ public final class Task {
      */
     public Task(@Nullable String title, @Nullable String description,
                 @NonNull String id, boolean completed) {
-        mId = id;
-        mTitle = title;
-        mDescription = description;
-        mCompleted = completed;
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.completed = completed;
     }
 
     @NonNull
     public String getId() {
-        return mId;
+        return id;
     }
 
     @Nullable
     public String getTitle() {
-        return mTitle;
+        return title;
     }
 
     @Nullable
     public String getTitleForList() {
-        if (!Strings.isNullOrEmpty(mTitle)) {
-            return mTitle;
+        if (!Strings.isNullOrEmpty(title)) {
+            return title;
         } else {
-            return mDescription;
+            return description;
         }
     }
 
     @Nullable
     public String getDescription() {
-        return mDescription;
+        return description;
     }
 
-    public boolean isCompleted() {
-        return mCompleted;
+    public boolean getCompleted() {
+        return completed;
     }
 
     public boolean isActive() {
-        return !mCompleted;
+        return !completed;
     }
 
     public boolean isEmpty() {
-        return Strings.isNullOrEmpty(mTitle) &&
-               Strings.isNullOrEmpty(mDescription);
+        return Strings.isNullOrEmpty(title) &&
+               Strings.isNullOrEmpty(description);
     }
 
     @Override
@@ -145,18 +143,18 @@ public final class Task {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
-        return Objects.equal(mId, task.mId) &&
-               Objects.equal(mTitle, task.mTitle) &&
-               Objects.equal(mDescription, task.mDescription);
+        return Objects.equal(id, task.id) &&
+               Objects.equal(title, task.title) &&
+               Objects.equal(description, task.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(mId, mTitle, mDescription);
+        return Objects.hashCode(id, title, description);
     }
 
     @Override
     public String toString() {
-        return "Task with title " + mTitle;
+        return "Task with title " + title;
     }
 }

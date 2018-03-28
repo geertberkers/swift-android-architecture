@@ -19,6 +19,8 @@ package com.example.android.architecture.blueprints.todoapp.data;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
+import com.example.android.architecture.blueprints.todoapp.data.source.GetTaskCallback;
+import com.example.android.architecture.blueprints.todoapp.data.source.LoadTasksCallback;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
 import com.google.common.collect.Lists;
 
@@ -68,7 +70,7 @@ public class FakeTasksRemoteDataSource implements TasksDataSource {
     }
 
     @Override
-    public void completeTask(@NonNull String taskId) {
+    public void completeTaskWithId(@NonNull String taskId) {
         // Not required for the remote data source.
     }
 
@@ -79,7 +81,7 @@ public class FakeTasksRemoteDataSource implements TasksDataSource {
     }
 
     @Override
-    public void activateTask(@NonNull String taskId) {
+    public void activateTaskWithId(@NonNull String taskId) {
         // Not required for the remote data source.
     }
 
@@ -88,7 +90,7 @@ public class FakeTasksRemoteDataSource implements TasksDataSource {
         Iterator<Map.Entry<String, Task>> it = TASKS_SERVICE_DATA.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<String, Task> entry = it.next();
-            if (entry.getValue().isCompleted()) {
+            if (entry.getValue().getCompleted()) {
                 it.remove();
             }
         }

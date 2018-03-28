@@ -130,7 +130,7 @@ public class TaskDetailViewModelTest {
         mTaskDetailViewModel.setCompleted(true);
 
         // Then a request is sent to the task repository and the UI is updated
-        verify(mTasksRepository).completeTask(mTask);
+        verify(mTasksRepository).completeTaskWithId(mTask);
         assertThat(mTaskDetailViewModel.getSnackbarMessage().getValue(),
                 is(R.string.task_marked_complete));
     }
@@ -143,7 +143,7 @@ public class TaskDetailViewModelTest {
         mTaskDetailViewModel.setCompleted(false);
 
         // Then a request is sent to the task repository and the UI is updated
-        verify(mTasksRepository).activateTask(mTask);
+        verify(mTasksRepository).activateTaskWithId(mTask);
         assertThat(mTaskDetailViewModel.getSnackbarMessage().getValue(),
                 is(R.string.task_marked_active));
     }
