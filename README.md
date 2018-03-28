@@ -1,6 +1,40 @@
-# todo-mvvm-live
+# todo-swift-mvvm-live
 
-This version of the app is called todo-mvvm-live, and it uses some Architecture Components like ViewModel, LiveData, and other lifecycle-aware classes. It's based on the [todo-mvvm-databinding](https://github.com/googlesamples/android-architecture/tree/todo-mvvm-databinding/) sample, which uses the [Data Binding Library](http://developer.android.com/tools/data-binding/guide.html#data_objects) to display data and bind UI elements to actions.
+This version of the app is called todo-swift-mvvm-live, and it uses Swift data model and some Architecture Components like ViewModel, LiveData, and other lifecycle-aware classes. It's based on the [todo-mvvm-databinding](https://github.com/googlesamples/android-architecture/tree/todo-mvvm-databinding/) sample, which uses the [Data Binding Library](http://developer.android.com/tools/data-binding/guide.html#data_objects) to display data and bind UI elements to actions.
+
+## How to compile
+
+First of all, instal swift android toolchain:
+
+```sh
+SWIFT_ANDROID=4.0d
+wget https://dl.bintray.com/readdle/swift-android-toolchain/swift-android-$SWIFT_ANDROID.zip
+unzip swift-android-$SWIFT_ANDROID.zip
+rm -rf swift-android-$SWIFT_ANDROID.zip
+unset SWIFT_ANDROID
+```
+
+Then add enviroment variables:
+
+```sh
+SWIFT_ANDROID=4.0d
+export SWIFT_ANDROID_HOME=$HOME/android/swift-android-$SWIFT_ANDROID
+export PATH=$SWIFT_ANDROID_HOME/bin:$SWIFT_ANDROID_HOME/build-tools/current:$PATH
+unset SWIFT_ANDROID
+```
+
+Install Swift Android Build tools (Optional): 
+
+```
+swift android tools --update
+```
+
+
+Then build with Android Studio or just gradlew
+
+```
+./gradlew clean assembleDebug
+```
 
 ## What you need
 
