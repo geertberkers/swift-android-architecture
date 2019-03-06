@@ -5,7 +5,7 @@ buildscript {
         maven { url "https://dl.bintray.com/readdle/maven" }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.0'
+        classpath 'com.android.tools.build:gradle:3.3.2'
         classpath 'com.readdle.android.swift:swift-android-gradle:1.1.2'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -16,7 +16,8 @@ allprojects {
     repositories {
         jcenter()
         google()
-        maven { url 'https://jitpack.io' }
+        maven { url "https://dl.bintray.com/readdle/maven" }
+        maven { url "https://jitpack.io" }
     }
 }
 
@@ -29,12 +30,12 @@ ext {
     // Sdk and tools
     // Support library and architecture components support minSdk 14 and above.
     minSdkVersion = 14
-    targetSdkVersion = 26
-    compileSdkVersion = 26
-    buildToolsVersion = '26.0.2'
+    targetSdkVersion = 28
+    compileSdkVersion = 28
+    buildToolsVersion = '28.0.2'
 
     // App dependencies
-    supportLibraryVersion = '27.1.0'
+    supportLibraryVersion = '28.0.0'
     guavaVersion = '22.0-android'
     junitVersion = '4.12'
     mockitoVersion = '1.10.19'
@@ -42,11 +43,11 @@ ext {
     hamcrestVersion = '1.3'
     runnerVersion = '1.0.1'
     rulesVersion = '1.0.1'
-    espressoVersion = '3.0.1'
+    espressoVersion = '3.0.2'
 
     // Architecture Components dependencies
-    roomVersion = "1.0.0"
-    archLifecycleVersion = "1.0.0-rc1"
+    roomVersion = "1.1.1"
+    archLifecycleVersion = "1.1.1"
 }
 
 /*

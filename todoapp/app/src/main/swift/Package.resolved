@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "AnyCodable",
-        "repositoryURL": "https://github.com/andriydruk/swift-anycodable.git",
+        "repositoryURL": "https://github.com/readdle/swift-anycodable.git",
         "state": {
-          "branch": "master",
-          "revision": "5adeeac40d87d9d2e251922d4ef238d0dc320fd3",
-          "version": null
+          "branch": null,
+          "revision": "32232589242f625ce14a96ab21d6955dc9ccd88c",
+          "version": "1.0.0"
         }
       },
       {
@@ -21,29 +21,29 @@
       },
       {
         "package": "Java",
-        "repositoryURL": "https://github.com/andriydruk/swift-java.git",
+        "repositoryURL": "https://github.com/readdle/swift-java.git",
         "state": {
-          "branch": "master",
-          "revision": "5d147a2cd4efab29835f0e360ef3fcbdd8a72d62",
-          "version": null
+          "branch": null,
+          "revision": "5e6a668accca93ebbf4b3aab7396c123dc6dbd4e",
+          "version": "0.1.5"
         }
       },
       {
         "package": "JavaCoder",
-        "repositoryURL": "https://github.com/andriydruk/swift-java-coder.git",
+        "repositoryURL": "https://github.com/readdle/swift-java-coder.git",
         "state": {
-          "branch": "master",
-          "revision": "ee095f12c2e5c9a89c77eb79ff2b6ddcb4ab1689",
-          "version": null
+          "branch": null,
+          "revision": "640089e36fc822f1424bda184f4ce284f19669eb",
+          "version": "1.0.5"
         }
       },
       {
         "package": "java_swift",
-        "repositoryURL": "https://github.com/andriydruk/java_swift.git",
+        "repositoryURL": "https://github.com/readdle/java_swift.git",
         "state": {
-          "branch": "master",
-          "revision": "9f7ae420b64118289385d43fdb92a47ac7e7cded",
-          "version": null
+          "branch": null,
+          "revision": "e599b65e41fdabb22e6b71f4c262c0cbc4a01c75",
+          "version": "2.1.3"
         }
       }
     ]

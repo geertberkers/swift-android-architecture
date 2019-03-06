@@ -4,10 +4,10 @@ This version of the app is called todo-swift-mvvm-live, and it uses Swift data m
 
 ## How to compile
 
-First of all, instal swift android toolchain:
+First of all, instal swift android toolchain  [![Download](https://api.bintray.com/packages/readdle/swift-android-toolchain/swift-android-toolchain/images/download.svg) ](https://bintray.com/readdle/swift-android-toolchain/swift-android-toolchain/_latestVersion):
 
 ```sh
-SWIFT_ANDROID=4.0d
+SWIFT_ANDROID=4.0l
 wget https://dl.bintray.com/readdle/swift-android-toolchain/swift-android-$SWIFT_ANDROID.zip
 unzip swift-android-$SWIFT_ANDROID.zip
 rm -rf swift-android-$SWIFT_ANDROID.zip
@@ -17,7 +17,7 @@ unset SWIFT_ANDROID
 Then add enviroment variables:
 
 ```sh
-SWIFT_ANDROID=4.0d
+SWIFT_ANDROID=4.0l
 export SWIFT_ANDROID_HOME=$HOME/android/swift-android-$SWIFT_ANDROID
 export PATH=$SWIFT_ANDROID_HOME/bin:$SWIFT_ANDROID_HOME/build-tools/current:$PATH
 unset SWIFT_ANDROID
