@@ -2,33 +2,23 @@
 
 This version of the app is called todo-swift-mvvm-live, and it uses Swift data model and some Architecture Components like ViewModel, LiveData, and other lifecycle-aware classes. It's based on the [todo-mvvm-databinding](https://github.com/googlesamples/android-architecture/tree/todo-mvvm-databinding/) sample, which uses the [Data Binding Library](http://developer.android.com/tools/data-binding/guide.html#data_objects) to display data and bind UI elements to actions.
 
-## How to compile
+## How to compile (Only macOS)
 
-First of all, instal swift android toolchain  [![Download](https://api.bintray.com/packages/readdle/swift-android-toolchain/swift-android-toolchain/images/download.svg) ](https://bintray.com/readdle/swift-android-toolchain/swift-android-toolchain/_latestVersion):
+First of all, preapre development enviroment according to https://github.com/readdle/swift-android-toolchain#prepare-environment
 
-```sh
-SWIFT_ANDROID=4.0l
-wget https://dl.bintray.com/readdle/swift-android-toolchain/swift-android-$SWIFT_ANDROID.zip
-unzip swift-android-$SWIFT_ANDROID.zip
-rm -rf swift-android-$SWIFT_ANDROID.zip
-unset SWIFT_ANDROID
+Set swift android toolchain path for Android Studio
+
+at local.properties:
+```
+ndk.dir=<PATH_TO_NDK>
+swift-android.dir=<PATH_TO_SWIFT_ANDROID_TOOLCHAIN>
 ```
 
-Then add enviroment variables:
-
-```sh
-SWIFT_ANDROID=4.0l
-export SWIFT_ANDROID_HOME=$HOME/android/swift-android-$SWIFT_ANDROID
-export PATH=$SWIFT_ANDROID_HOME/bin:$SWIFT_ANDROID_HOME/build-tools/current:$PATH
-unset SWIFT_ANDROID
+or add to your .profile:
 ```
-
-Install Swift Android Build tools (Optional): 
-
+launchctl setenv ANDROID_NDK_HOME <PATH_TO_NDK>
+launchctl setenv SWIFT_ANDROID_HOME <PATH_TO_SWIFT_ANDROID_TOOLCHAIN>
 ```
-swift android tools --update
-```
-
 
 Then build with Android Studio or just gradlew
 
