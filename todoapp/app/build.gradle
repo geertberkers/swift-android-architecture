@@ -19,10 +19,6 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
-
-        ndk {
-            abiFilter 'armeabi-v7a'
-        }
     }
 
     buildTypes {
@@ -45,26 +41,6 @@ android {
             testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
         }
     }
-    flavorDimensions "default"
-
-    // If you need to add more flavors, consider using flavor dimensions.
-    productFlavors {
-        mock {
-            dimension "default"
-            applicationIdSuffix = ".mock"
-        }
-        prod {
-            dimension "default"
-        }
-    }
-
-    // Remove mockRelease as it's not needed.
-    android.variantFilter { variant ->
-        if (variant.buildType.name == 'release'
-                && variant.getFlavors().get(0).name == 'mock') {
-            variant.setIgnore(true)
-        }
-    }
 
     // Always show the result of every unit test, even if it passes.
     testOptions.unitTests.all {
@@ -85,8 +61,8 @@ android {
  */
 dependencies {
     // Swift dependencies
-    annotationProcessor "com.readdle.swift.java.codegen:compiler:0.6.14"
-    implementation "com.readdle.swift.java.codegen:annotations:0.6.14"
+    annotationProcessor "com.readdle.swift.java.codegen:compiler:0.7.0"
+    implementation "com.readdle.swift.java.codegen:annotations:0.7.0"
 
     // App's dependencies, including test
     compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"

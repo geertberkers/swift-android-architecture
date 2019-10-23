@@ -13,13 +13,17 @@ let AndroidPackage = "com/example/android/architecture/blueprints/todoapp/data"
 public extension Array {
 
     // Decoding SwiftValue type with JavaCoder
-    public static func from(javaObject: jobject) throws -> Array {
+    static func from<T>(javaObject: jobject) throws -> Array<T> where T: Decodable {
         // ignore forPackage for basic impl
-        return try JavaDecoder(forPackage: AndroidPackage, missingFieldsStrategy: .ignore).decode(Array.self, from: javaObject)
+        return try JavaDecoder(forPackage: AndroidPackage, missingFieldsStrategy: .ignore).decode(Array<T>.self, from: javaObject)
     }
 
+}
+
+public extension Array where Element: Encodable {
+
     // Encoding SwiftValue type with JavaCoder
-    public func javaObject() throws -> jobject {
+    func javaObject() throws -> jobject {
         // ignore forPackage for basic impl
         return try JavaEncoder(forPackage: AndroidPackage, missingFieldsStrategy: .ignore).encode(self)
     }

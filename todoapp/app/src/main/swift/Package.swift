@@ -1,4 +1,4 @@
-// swift-tools-version:4.0
+// swift-tools-version:5.0
 import PackageDescription
 import Foundation
 
@@ -41,7 +41,7 @@ func addGenerated(_ targets: [Target]) -> [Target] {
         .target(
             name: generatedName,
             dependencies: [
-                .byNameItem(name: packageName),
+                .byName(name: packageName),
                 "java_swift",
                 "Java",
                 "JavaCoder",
@@ -57,12 +57,11 @@ let package = Package(
     products: addGenerated([
     ]),
     dependencies: [
-        .package(url: "https://github.com/readdle/java_swift.git", .exact("2.1.3")),
-        .package(url: "https://github.com/readdle/swift-java.git", .exact("0.1.5")),
-        .package(url: "https://github.com/readdle/swift-java-coder.git", .exact("1.0.5")),
+        .package(url: "https://github.com/readdle/java_swift.git", .exact("2.1.9")),
+        .package(url: "https://github.com/readdle/swift-java.git", .exact("0.2.4")),
+        .package(url: "https://github.com/readdle/swift-java-coder.git", .exact("1.0.17")),
     ],
     targets: addGenerated([
         .target(name: packageName, dependencies: ["java_swift", "JavaCoder"])
-    ]),
-    swiftLanguageVersions: [4]
+    ])
 )
