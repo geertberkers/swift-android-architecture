@@ -74,7 +74,7 @@ public class TasksActivity extends AppCompatActivity implements TaskItemNavigato
         // Subscribe to "new task" event
         mViewModel.getNewTaskEvent().observe(this, new Observer<Void>() {
             @Override
-            public void onChanged(@Nullable Void _) {
+            public void onChanged(@Nullable Void v) {
                 addNewTask();
             }
         });

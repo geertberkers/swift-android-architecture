@@ -77,7 +77,7 @@ public class AddEditTaskActivity extends AppCompatActivity implements AddEditTas
         // The activity observes the navigation events in the ViewModel
         viewModel.getTaskUpdatedEvent().observe(this, new Observer<Void>() {
             @Override
-            public void onChanged(@Nullable Void _) {
+            public void onChanged(@Nullable Void v) {
                 AddEditTaskActivity.this.onTaskSaved();
             }
         });

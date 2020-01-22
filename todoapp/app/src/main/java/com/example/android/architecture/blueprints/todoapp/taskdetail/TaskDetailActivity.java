@@ -101,13 +101,13 @@ public class TaskDetailActivity extends AppCompatActivity implements TaskDetailN
         // The activity observes the navigation commands in the ViewModel
         viewModel.getEditTaskCommand().observe(this, new Observer<Void>() {
             @Override
-            public void onChanged(@Nullable Void _) {
+            public void onChanged(@Nullable Void v) {
                 TaskDetailActivity.this.onStartEditTask();
             }
         });
         viewModel.getDeleteTaskCommand().observe(this, new Observer<Void>() {
             @Override
-            public void onChanged(@Nullable Void _) {
+            public void onChanged(@Nullable Void v) {
                 TaskDetailActivity.this.onTaskDeleted();
             }
         });
