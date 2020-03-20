@@ -28,20 +28,25 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.android.architecture.blueprints.todoapp.R;
 import com.example.android.architecture.blueprints.todoapp.ViewModelFactory;
 import com.example.android.architecture.blueprints.todoapp.addedittask.AddEditTaskActivity;
+import com.example.android.architecture.blueprints.todoapp.data.FHIRString;
+import com.example.android.architecture.blueprints.todoapp.data.SampleValue;
+import com.example.android.architecture.blueprints.todoapp.data.ToDo;
 import com.example.android.architecture.blueprints.todoapp.statistics.StatisticsActivity;
 import com.example.android.architecture.blueprints.todoapp.taskdetail.TaskDetailActivity;
 import com.example.android.architecture.blueprints.todoapp.util.ActivityUtils;
-
+import com.readdle.codegen.anotation.JavaSwift;
 
 public class TasksActivity extends AppCompatActivity implements TaskItemNavigator, TasksNavigator {
 
     static {
         System.loadLibrary("TodoCore");
+        JavaSwift.init();
     }
 
     private DrawerLayout mDrawerLayout;
@@ -52,6 +57,24 @@ public class TasksActivity extends AppCompatActivity implements TaskItemNavigato
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tasks_act);
+
+        ToDo todo = new ToDo("id", "title", "descripition");
+        Log.e("Todo", todo.titleDescription());
+
+        SampleValue value = SampleValue.getRandomValue();
+        Log.e("SampleValue", value.string);
+
+        SampleValue value2 = SampleValue.getRandomValue();
+        Log.e("SampleValue2", value2.string);
+        Log.e("SampleValueEquals", value.isSame(value2).toString());
+
+
+        FHIRString fhirString = FHIRString.getRandomValue();         // new FHIRString(null, new ArrayList<Extension>(), "Test");
+//        Log.e("FHIRString", fhirString.getFHIRStringValue());
+        Log.e("FHIRString", fhirString.toString());
+
+//        toastIdOrExtension(this, fhirString);
+
 
         setupToolbar();
 
